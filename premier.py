@@ -6,7 +6,8 @@ from Tkinter import *
 # Propose qq chose je sait pas quoi faire :/
 # Et fait autre chose :) moi je viens de faire qq chose montre moi c que tu peut faire
 
-
+print("Bite")
+#J'ai perdu toutes mes notions en oython :o
 
   # ca fait un rond d'une couleur aléatoire la ou tu clique :3
 def change_c(canvas) :
