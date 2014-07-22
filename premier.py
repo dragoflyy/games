@@ -1,7 +1,6 @@
 # tests ici
 import time, Tkinter, os, random
 from Tkinter import *
-from Tkinter.messagebox import *
 # a completer x)
 # Bon fait ce que tu veut  moi j'fais un jeu de carte avec python :3 je te montrerais si tu veut P.S: suprimme cette ligne.
 # Propose qq chose je sait pas quoi faire :/
@@ -42,28 +41,26 @@ def rond_color() :
   
   
 def start_rond() :
-  global home
-  home.destroy
+  home.destroy()
   present = Tkinter.Tk()
   present.title("Color clic")
-  text = Label(text="cliquez sur le carré pour faire apparaitre un rond de couleur aléatoire...")
-  contin = Button(text="continuer", command=present.destroy )
+  text = Label(present, text="cliquez sur le carré pour faire apparaitre un rond de couleur aléatoire...")
+  contin = Button(present, text="continuer", command=present.destroy, height=2, width=4 )
   text.pack()
   contin.pack()
   present.mainloop()
   rond_color()
 # voila...
-def quit_home() :
-  d = 1
-d = 0
-while d == 0 :
+
 # menu des jeux :3
 global home
-home = Tk()
+home = Tkinter.Tk()
 home.title("Home")
-quit = Button(text="Quitter", command=quit_home(), width=50, height=20)
-rond = Button(text="Rond aléatoire", command=start_rond(), width=50, height=20)
-
+quit = Button(text="Quitter", command=home.destroy, width=10, height=5)
+rond = Button(text="Rond aléatoire", command=start_rond, width=10, height=5)
+quit.pack(side=RIGHT)
+rond.pack(side=LEFT)
+home.mainloop()
 
 
 
