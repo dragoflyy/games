@@ -7,7 +7,7 @@ from Tkinter import *
 # Et fait autre chose :) moi je viens de faire qq chose montre moi c que tu peut faire
 
 print("Bite")
-#J'ai perdu toutes mes notions en oython :o
+#J'ai perdu toutes mes notions en python :o
 
   # ca fait un rond d'une couleur aléatoire la ou tu clique :3
 def change_c(canvas) :
