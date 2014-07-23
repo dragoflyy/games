@@ -15,8 +15,8 @@ print("Bite")
   # click on the square to make a rond with random color
 def change_c(canvas) :
   global color     # made a random color :3
-  couleurs=["blue","red","green","grey","yellow", "light yellow"]
-  i = random.randint(0,4)
+  couleurs=["blue","red","green","grey","yellow", "light yellow","light green","white","light blue"]
+  i = random.randint(0,8)
   color = couleurs[i]
   canvas.itemconfig(cercle, fill=color)
   
@@ -27,18 +27,21 @@ def get_pos(event) :
 
   
 def create_round(x,y,r,color) :
+  r = random.randint(10,20)
   can.create_oval(x-r,y-r,x+r,y+r,fill=color)
   
 def create_square(x,y,r,color) :
+  r = random.randint(10,20)
   z = x + r
   w = y + r
-  can.create_oval(x,y,z,w,fill=color)
+  can.create_rectangle(x,y,z,w,fill=color)
   
 def create_text(x,y,color) :
-  can.create_text(10, 10, x, y)
-  can.itemconfig(text="spam", fill=color, width=3)
+  r = random.randint(10,20)
+  can.create_text(x,y, text="spam!", font="Arial %i italic"%r, fill=color)
 
 def create_new():
+  global form
   x = random.randint(1,300)
   y = random.randint(1,300)
   r = 20
@@ -53,10 +56,13 @@ def create_new():
     form = 1
     create_round(x,y,r,color)
 
-def clear() :
+def clear() : # this button not work, when you click on it you can't move the cercle
   can.delete(ALL)
+  cercle = can.create_oval(x, y, x+30, y+30, width=2, fill=color)
+  can.bind("<Button-1>",get_pos)
 
 def change_fo() :
+  global form
   form += 1
 
 def rond_color() :
@@ -66,8 +72,8 @@ def rond_color() :
   fen.title("Color clic")
   quit = Button(text="quit", command=fen.destroy, height=3, width=5 )
   aleat = Button(text="add", command=create_new, height=3, width=5 )
-  clean = Button(text="clean", command=clear, height=3, width=5)
-  change_f = Button(text="change form", command=change_fo, height=3, width=5)
+  clean = Button(text="clean", command=clear, height=2, width=5)
+  change_f = Button(text="change form", command=change_fo, height=3, width=7)
   can = Canvas(fen, width=300, height=300, bg="black" )
   color="white"
   cercle = can.create_oval(x, y, x+30, y+30, width=2, fill=color)
@@ -76,6 +82,8 @@ def rond_color() :
   can.pack()
   quit.pack(side=LEFT)
   aleat.pack(side=RIGHT)
+  clean.pack(side=RIGHT)
+  change_f.pack(side=LEFT)
   fen.mainloop()
   menu()
   
@@ -103,6 +111,16 @@ def menu() : # home of games :3
   home.mainloop()
 
 menu()
+
+
+
+
+
+
+
+
+
+
 
 
 
