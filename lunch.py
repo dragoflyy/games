@@ -1,7 +1,9 @@
 
 import time, Tkinter, os, random
 from Tkinter import *
-# here is a 
+# here is a range of programs like the color click (the first programs )
+# yeah every where you can see some : :3, :3 I don't now why but it's cool :3 :3
+# enjoy. Ho and I done this with the contribution of "mat1991". Fine. Bye :3
 
 print("Bite")
 #J'ai perdu toutes mes notions en python :o
