@@ -1,4 +1,4 @@
-
+# -*- coding: utf-8 -*-
 import time, Tkinter, os, random
 from Tkinter import *
 # here is a range of programs like the color click (the first programs )
@@ -6,7 +6,7 @@ from Tkinter import *
 # enjoy. Ho and I done this with the contribution of "mat1991". Fine. Bye :3
 
 print("Bite")
-#J'ai perdu toutes mes notions en python :o
+#J'ai perdu toutes mes notions en python :o   Et ba bravo pour le print :P
 
 
 
@@ -26,23 +26,48 @@ def get_pos(event) :
   change_c(can)
 
   
-def create(x,y,r,color) :
+def create_round(x,y,r,color) :
   can.create_oval(x-r,y-r,x+r,y+r,fill=color)
+  
+def create_square(x,y,r,color) :
+  z = x + r
+  w = y + r
+  can.create_oval(x,y,z,w,fill=color)
+  
+def create_text(x,y,color) :
+  can.create_text(10, 10, x, y)
+  can.itemconfig(text="spam", fill=color, width=3)
 
 def create_new():
   x = random.randint(1,300)
   y = random.randint(1,300)
   r = 20
   change_c(can)
-  create(x,y,r,color)
+  if form == 1 :
+    create_round(x,y,r,color)
+  elif form == 2 :
+    create_square(x,y,r,color)
+  elif form == 3 :
+    create_text(x,y,color)
+  else :
+    form = 1
+    create_round(x,y,r,color)
+
+def clear() :
+  can.delete(ALL)
+
+def change_fo() :
+  form += 1
 
 def rond_color() :
-  global x,y,r,fen,can,cercle
-  x,y,r=10,10,10
+  global x,y,r,fen,can,cercle,form
+  x,y,r,form=10,10,10,1
   fen = Tkinter.Tk()
   fen.title("Color clic")
   quit = Button(text="quit", command=fen.destroy, height=3, width=5 )
   aleat = Button(text="add", command=create_new, height=3, width=5 )
+  clean = Button(text="clean", command=clear, height=3, width=5)
+  change_f = Button(text="change form", command=change_fo, height=3, width=5)
   can = Canvas(fen, width=300, height=300, bg="black" )
   color="white"
   cercle = can.create_oval(x, y, x+30, y+30, width=2, fill=color)
@@ -59,7 +84,7 @@ def start_rond() :
   home.destroy()
   present = Tkinter.Tk()
   present.title("Color clic")
-  text = Label(present, text="cliquez sur le carré pour faire apparaitre un rond de couleur aléatoire... /n click on the black squarel to made a rond with a random color...")
+  text = Label(present, text="cliquez sur le carré pour faire apparaitre un rond de couleur aléatoire... // click on the black squarel to made a rond with a random color...")
   contin = Button(present, text="continue", command=present.destroy, height=2, width=4 )
   text.pack()
   contin.pack()
