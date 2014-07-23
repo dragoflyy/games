@@ -12,8 +12,8 @@ print("Bite")
   # ca fait un rond d'une couleur aléatoire la ou tu clique :3
 def change_c(canvas) :
   global color     # choix d'une couleurs aléatoire :3
-  couleurs=["blue","red","green","grey","yellow", "light yellow"]
-  i = random.randint(0,4)
+  couleurs=["blue","red","green","grey","yellow", "light yellow","light red","light green","light blue"]
+  i = random.randint(0,8)
   color = couleurs[i]
   canvas.itemconfig(cercle, fill=color)
   
