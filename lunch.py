@@ -5,9 +5,9 @@ from Tkinter import *
 # yeah every where you can see some : :3, :3 I don't now why but it's cool :3 :3
 # enjoy. Ho and I done this with the contribution of "mat1991". Fine. Bye :3
 
-print "Bite"
+print ("Bite")
 
-#J'ai perdu toutes mes notions en python :o   Et ba bravo pour le print :P
+
 
 
 
